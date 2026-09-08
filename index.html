@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>الخطّاب | مكتبة الكتب الإسلامية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1710;
+    --ink-2:#2a2115;
+    --paper:#f2ead8;
+    --paper-2:#e9dfc7;
+    --card:#fffcf4;
+    --maroon:#7c2d2a;
+    --maroon-dark:#54201e;
+    --gold:#a97c2f;
+    --gold-light:#e3c583;
+    --forest:#2f4a3a;
+    --text:#2a2317;
+    --muted:#786a54;
+    --line: rgba(169,124,47,.35);
+    --shadow: 0 10px 30px rgba(28,23,16,.12);
+    --radius: 14px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text);
+    font-family:'Tajawal', sans-serif;
+    font-weight:400;
+    line-height:1.7;
+  }
+  h1,h2,h3, .display{
+    font-family:'Amiri', serif;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .amiri{ font-family:'Amiri', serif; }
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  button{font-family:inherit; cursor:pointer;}
+
+  /* ---------- Texture backdrop ---------- */
+  body{
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(169,124,47,.06), transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(124,45,42,.05), transparent 35%);
+  }
+
+  /* ---------- Ornamental frame corners (signature element) ---------- */
+  .ornate{
+    position:relative;
+  }
+  .ornate::before, .ornate::after,
+  .ornate .c2::before, .ornate .c2::after{
+    content:"";
+    position:absolute;
+    width:26px; height:26px;
+    border:2px solid var(--gold);
+    opacity:.85;
+  }
+  .ornate::before{ top:8px; right:8px; border-left:none; border-bottom:none; }
+  .ornate::after{ top:8px; left:8px; border-right:none; border-bottom:none; }
+  .ornate .c2{ position:absolute; inset:0; }
+  .ornate .c2::before{ bottom:8px; right:8px; border-left:none; border-top:none; }
+  .ornate .c2::after{ bottom:8px; left:8px; border-right:none; border-top:none; }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+    color:var(--paper);
+    border-bottom:3px double var(--gold);
+  }
+  .header-inner{
+    max-width:1180px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 20px;
+    gap:16px;
+  }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand .logo-mark{
+    width:42px; height:42px; border:2px solid var(--gold);
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-family:'Aref Ruqaa', serif; color:var(--gold-light); font-size:22px;
+    flex-shrink:0;
+  }
+  .brand-text h1{
+    margin:0; font-size:26px; color:var(--paper); line-height:1;
+  }
+  .brand-text span{
+    display:block; font-size:11.5px; color:var(--gold-light); letter-spacing:.5px; margin-top:3px;
+  }
+  nav.cats{
+    display:flex; gap:18px; font-size:14.5px; flex-wrap:wrap;
+  }
+  nav.cats a{
+    text-decoration:none; color:var(--paper); opacity:.85; white-space:nowrap;
+    border-bottom:1px solid transparent; padding-bottom:2px;
+  }
+  nav.cats a:hover{ opacity:1; border-color:var(--gold); }
+  .header-actions{ display:flex; align-items:center; gap:14px; }
+  .icon-btn{
+    background:none; border:1px solid var(--gold); color:var(--paper);
+    border-radius:10px; padding:9px 14px; display:flex; align-items:center; gap:8px;
+    font-size:14.5px; position:relative; transition:.2s;
+  }
+  .icon-btn:hover{ background:rgba(169,124,47,.18); }
+  .cart-badge{
+    position:absolute; top:-9px; left:-9px;
+    background:var(--maroon); color:#fff; font-size:11px; font-weight:700;
+    width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    border:2px solid var(--ink);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    max-width:1180px; margin:38px auto 10px; padding:0 20px;
+  }
+  .hero-frame{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:52px 30px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-frame::before{
+    content:"";
+    position:absolute; inset:10px;
+    border:1.5px solid var(--gold-light);
+    border-radius:8px;
+    pointer-events:none;
+  }
+  .hero-eyebrow{
+    color:var(--maroon); letter-spacing:2px; font-size:12.5px; font-weight:700;
+    text-transform:uppercase;
+  }
+  .hero h2{
+    font-size:44px; margin:14px 0 8px; color:var(--ink);
+  }
+  .hero p{
+    max-width:560px; margin:0 auto; color:var(--muted); font-size:16px;
+  }
+  .hero-cta{
+    margin-top:26px; display:inline-flex; gap:14px; flex-wrap:wrap; justify-content:center;
+  }
+  .btn{
+    display:inline-block; padding:13px 28px; border-radius:999px;
+    font-weight:700; font-size:15px; text-decoration:none; border:none;
+    transition:.2s transform, .2s box-shadow;
+  }
+  .btn-primary{ background:var(--maroon); color:#fff; }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 8px 18px rgba(124,45,42,.35); }
+  .btn-ghost{ background:transparent; border:1.5px solid var(--gold); color:var(--ink); }
+  .btn-ghost:hover{ background:rgba(169,124,47,.1); }
+
+  .divider{
+    display:flex; align-items:center; gap:14px; max-width:1180px; margin:44px auto 26px; padding:0 20px;
+    color:var(--gold); font-size:20px;
+  }
+  .divider::before, .divider::after{
+    content:""; flex:1; height:1px; background:var(--line);
+  }
+
+  /* ---------- Category filters ---------- */
+  .filters{
+    max-width:1180px; margin:0 auto 30px; padding:0 20px;
+    display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
+  }
+  .chip{
+    border:1.5px solid var(--line); background:var(--card); color:var(--text);
+    padding:9px 20px; border-radius:999px; font-size:14.5px; font-weight:500;
+    transition:.2s;
+  }
+  .chip:hover{ border-color:var(--gold); }
+  .chip.active{
+    background:var(--ink); color:var(--gold-light); border-color:var(--ink);
+  }
+
+  /* ---------- Search box ---------- */
+  .search-wrap{
+    max-width:640px; margin:0 auto 26px; padding:0 20px;
+  }
+  .search-wrap input{
+    width:100%; box-sizing:border-box;
+    border:1.5px solid var(--line); background:var(--card); color:var(--text);
+    padding:12px 18px; border-radius:999px; font-size:15px; font-family:inherit;
+    outline:none; transition:.2s;
+  }
+  .search-wrap input:focus{ border-color:var(--gold); }
+  .search-wrap input::placeholder{ color:var(--muted); }
+
+  /* ---------- Product grid ---------- */
+  main{ max-width:1180px; margin:0 auto; padding:0 20px 70px; }
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+    gap:26px;
+  }
+  .card{
+    background:var(--card); border-radius:var(--radius); overflow:hidden;
+    border:1px solid var(--line); box-shadow:var(--shadow);
+    display:flex; flex-direction:column;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .card:hover{ transform:translateY(-4px); box-shadow:0 16px 34px rgba(28,23,16,.16); }
+  .card-media{
+    background:linear-gradient(180deg, var(--paper-2), var(--paper));
+    padding:16px; display:flex; align-items:center; justify-content:center;
+    min-height:230px;
+    border-bottom:1px solid var(--line);
+  }
+  .card-media img{ max-height:230px; object-fit:contain; border-radius:4px; }
+  .card-body{ padding:16px 18px 18px; display:flex; flex-direction:column; gap:8px; flex:1; }
+  .card-cat{ font-size:11.5px; color:var(--maroon); font-weight:700; letter-spacing:.3px; }
+  .card-title{ font-family:'Aref Ruqaa', serif; font-size:20px; color:var(--ink); line-height:1.35; margin:0; }
+  .card-author{ font-size:13px; color:var(--muted); }
+  .card-desc{
+    font-size:13.5px; color:var(--muted); flex:1;
+    display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
+  }
+  .card-foot{
+    display:flex; align-items:center; justify-content:space-between; margin-top:8px; gap:10px;
+  }
+  .price{ font-weight:900; color:var(--maroon-dark); font-size:18px; }
+  .price small{ font-weight:500; font-size:12px; color:var(--muted); }
+  .add-btn{
+    background:var(--ink); color:var(--gold-light); border:none;
+    padding:10px 18px; border-radius:9px; font-size:13.5px; font-weight:700;
+    transition:.2s;
+  }
+  .add-btn:hover{ background:var(--maroon); color:#fff; }
+  .add-btn.added{ background:var(--forest); color:#fff; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--ink); color:var(--paper); padding:44px 20px 26px; margin-top:40px;
+    border-top:3px double var(--gold);
+  }
+  .footer-inner{ max-width:1180px; margin:0 auto; display:flex; flex-wrap:wrap; gap:30px; justify-content:space-between; }
+  .footer-col h3{ color:var(--gold-light); font-size:19px; margin:0 0 12px; }
+  .footer-col p, .footer-col a{ color:rgba(242,234,216,.75); font-size:13.5px; text-decoration:none; }
+  .footer-bottom{
+    max-width:1180px; margin:30px auto 0; padding-top:18px; border-top:1px solid rgba(169,124,47,.3);
+    text-align:center; font-size:12.5px; color:rgba(242,234,216,.55);
+  }
+  .wa-link{ display:inline-flex; align-items:center; gap:8px; margin-top:6px; color:var(--gold-light) !important; font-weight:700; }
+
+  /* ---------- Cart / Checkout view ---------- */
+  #cart-view{ display:none; }
+  .cart-wrap{
+    max-width:920px; margin:38px auto 80px; padding:0 20px;
+  }
+  .cart-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:22px; }
+  .cart-header h2{ margin:0; font-size:32px; }
+  .back-link{ font-size:14px; color:var(--maroon); text-decoration:none; font-weight:700; display:flex; align-items:center; gap:6px; }
+
+  .empty-cart{
+    background:var(--card); border:1px dashed var(--line); border-radius:var(--radius);
+    padding:60px 20px; text-align:center; color:var(--muted);
+  }
+
+  .cart-items{ display:flex; flex-direction:column; gap:14px; margin-bottom:26px; }
+  .cart-item{
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
+    display:flex; gap:14px; padding:14px; align-items:center;
+  }
+  .cart-item img{ width:70px; height:90px; object-fit:contain; background:var(--paper-2); border-radius:6px; padding:4px; }
+  .ci-info{ flex:1; min-width:0; }
+  .ci-info h4{ margin:0 0 4px; font-family:'Aref Ruqaa',serif; font-size:17px; color:var(--ink); }
+  .ci-info .ci-price{ font-size:13px; color:var(--muted); }
+  .qty-ctrl{ display:flex; align-items:center; gap:10px; border:1px solid var(--line); border-radius:8px; padding:4px 8px; }
+  .qty-ctrl button{ background:none; border:none; font-size:16px; font-weight:700; color:var(--maroon); width:22px; }
+  .ci-total{ font-weight:800; color:var(--maroon-dark); min-width:75px; text-align:left; }
+  .ci-remove{ background:none; border:none; color:var(--muted); font-size:18px; padding:4px 6px; }
+  .ci-remove:hover{ color:var(--maroon); }
+
+  .checkout-grid{ display:grid; grid-template-columns:1.2fr .8fr; gap:26px; align-items:start; }
+  @media (max-width:760px){ .checkout-grid{ grid-template-columns:1fr; } }
+
+  .panel{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); }
+  .panel h3{ margin:0 0 16px; font-size:20px; }
+  .field{ margin-bottom:16px; }
+  .field label{ display:block; font-size:13.5px; font-weight:700; margin-bottom:6px; color:var(--ink); }
+  .field input, .field textarea{
+    width:100%; padding:11px 13px; border-radius:9px; border:1.5px solid var(--line);
+    background:var(--paper); font-family:inherit; font-size:14.5px; color:var(--text);
+  }
+  .field input:focus, .field textarea:focus{ outline:2px solid var(--gold); border-color:var(--gold); }
+  .field textarea{ resize:vertical; min-height:70px; }
+
+  .delivery-options{ display:flex; flex-direction:column; gap:10px; margin-bottom:6px; }
+  .delivery-option{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    border:1.5px solid var(--line); border-radius:9px; padding:12px 14px; cursor:pointer; font-size:14px;
+  }
+  .delivery-option.selected{ border-color:var(--maroon); background:rgba(124,45,42,.05); }
+  .delivery-option input{ accent-color:var(--maroon); }
+  .delivery-option .do-left{ display:flex; align-items:center; gap:10px; }
+  .delivery-option .do-price{ font-weight:800; color:var(--maroon-dark); }
+
+  .summary-row{ display:flex; justify-content:space-between; font-size:14.5px; margin-bottom:10px; color:var(--muted); }
+  .summary-row.total{ font-size:19px; font-weight:900; color:var(--ink); border-top:1px dashed var(--line); padding-top:14px; margin-top:6px; }
+  .summary-row.total span:last-child{ color:var(--maroon-dark); }
+
+  .order-btn{
+    width:100%; background:#25D366; color:#fff; border:none; padding:16px; border-radius:11px;
+    font-size:16.5px; font-weight:800; margin-top:14px; display:flex; align-items:center; justify-content:center; gap:10px;
+    transition:.2s;
+  }
+  .order-btn:hover{ filter:brightness(1.05); transform:translateY(-1px); }
+  .order-btn:disabled{ opacity:.5; cursor:not-allowed; transform:none; }
+  .hint{ font-size:12px; color:var(--muted); margin-top:10px; text-align:center; }
+
+  .toast{
+    position:fixed; bottom:24px; right:50%; transform:translateX(50%);
+    background:var(--ink); color:var(--gold-light); padding:13px 22px; border-radius:10px;
+    border:1px solid var(--gold); font-size:14px; z-index:200; opacity:0; pointer-events:none;
+    transition:.25s;
+  }
+  .toast.show{ opacity:1; transform:translateX(50%) translateY(-6px); }
+
+  @media (max-width:820px){
+    nav.cats{ display:none; }
+    .hero h2{ font-size:32px; }
+    .header-inner{ padding:12px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="logo-mark">خ</div>
+      <div class="brand-text">
+        <h1>الخـطّاب</h1>
+        <span>مكتبة الكتب الإسلامية المختارة</span>
+      </div>
+    </div>
+    <nav class="cats" id="topnav">
+      <a href="#" data-cat="all">جميع الكتب</a>
+      <a href="#" data-cat="عقيدة وتوحيد">عقيدة وتوحيد</a>
+      <a href="#" data-cat="سيرة وتاريخ">سيرة وتاريخ</a>
+      <a href="#" data-cat="تزكية وآداب طلب العلم">تزكية وآداب طلب العلم</a>
+      <a href="#" data-cat="الحديث وشروحه">الحديث وشروحه</a>
+      <a href="#" data-cat="متون علمية">متون علمية</a>
+      <a href="#" data-cat="التفسير وعلوم القرآن">التفسير وعلوم القرآن</a>
+      <a href="#" data-cat="الفقه والحياة الإسلامية">الفقه والحياة الإسلامية</a>
+      <a href="#" data-cat="الأدب والشعر">الأدب والشعر</a>
+      <a href="#" data-cat="الحزم">الحزم</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="cart-btn">
+        🛒 السلة
+        <span class="cart-badge" id="cart-count" style="display:none;">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="shop-view">
+  <section class="hero">
+    <div class="hero-frame ornate"><div class="c2"></div>
+      <div class="hero-eyebrow">كتب مختارة بعناية · طبعات فاخرة</div>
+      <h2>خزانة علمٍ توثق الأصول<br>وتُهدي القلوب طمأنينة</h2>
+      <p>مجموعة مُنتقاة من أمهات الكتب في العقيدة والسيرة والتزكية، بطبعات فاخرة الغلاف والورق، توصَل إلى باب بيتك في جميع أنحاء المغرب.</p>
+      <div class="hero-cta">
+        <a href="#books" class="btn btn-primary">تصفّح الكتب</a>
+        <a href="https://wa.me/212665856787" target="_blank" class="btn btn-ghost">تواصل عبر واتساب</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">﷽</div>
+
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="ابحث عن كتاب...">
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="chip active" data-cat="all">الكل</button>
+    <button class="chip" data-cat="عقيدة وتوحيد">عقيدة وتوحيد</button>
+    <button class="chip" data-cat="سيرة وتاريخ">سيرة وتاريخ</button>
+    <button class="chip" data-cat="تزكية وآداب طلب العلم">تزكية وآداب طلب العلم</button>
+    <button class="chip" data-cat="الحديث وشروحه">الحديث وشروحه</button>
+    <button class="chip" data-cat="متون علمية">متون علمية</button>
+    <button class="chip" data-cat="التفسير وعلوم القرآن">التفسير وعلوم القرآن</button>
+    <button class="chip" data-cat="الفقه والحياة الإسلامية">الفقه والحياة الإسلامية</button>
+    <button class="chip" data-cat="الأدب والشعر">الأدب والشعر</button>
+    <button class="chip" data-cat="الحزم">الحزم</button>
+  </div>
+
+  <main id="books">
+    <div class="grid" id="product-grid"></div>
+  </main>
+</div>
+
+<div id="cart-view">
+  <div class="cart-wrap">
+    <div class="cart-header">
+      <h2>سلة المشتريات</h2>
+      <a href="#" class="back-link" id="back-to-shop">→ متابعة التسوق</a>
+    </div>
+
+    <div id="cart-empty" class="empty-cart" style="display:none;">
+      <p style="font-size:18px; margin-bottom:6px;">🛒 سلتك فارغة حالياً</p>
+      <p>تصفّح الكتب وأضف ما يعجبك إلى السلة</p>
+      <a href="#books" class="btn btn-primary" style="margin-top:16px;">تصفّح الكتب</a>
+    </div>
+
+    <div id="cart-content">
+      <div class="cart-items" id="cart-items"></div>
+
+      <div class="checkout-grid">
+        <div class="panel">
+          <h3>معلومات التوصيل</h3>
+          <div class="field">
+            <label>الاسم الكامل</label>
+            <input type="text" id="f-name" placeholder="مثال: محمد العلوي">
+          </div>
+          <div class="field">
+            <label>رقم الهاتف</label>
+            <input type="tel" id="f-phone" placeholder="مثال: 06XXXXXXXX">
+          </div>
+          <div class="field">
+            <label>العنوان بالتفصيل</label>
+            <textarea id="f-address" placeholder="الحي، الشارع، رقم المنزل، المدينة..."></textarea>
+          </div>
+          <div class="field">
+            <label>مكان التوصيل</label>
+            <div class="delivery-options">
+              <label class="delivery-option selected" id="opt-casa">
+                <span class="do-left"><input type="radio" name="delivery" value="20" checked> داخل الدار البيضاء</span>
+                <span class="do-price">20 درهم</span>
+              </label>
+              <label class="delivery-option" id="opt-other">
+                <span class="do-left"><input type="radio" name="delivery" value="35"> خارج الدار البيضاء</span>
+                <span class="do-price">35 درهم</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>ملخص الطلب</h3>
+          <div class="summary-row"><span>مجموع الكتب</span><span id="sum-subtotal">0 درهم</span></div>
+          <div class="summary-row"><span>ثمن التوصيل</span><span id="sum-delivery">20 درهم</span></div>
+          <div class="summary-row total"><span>المجموع الكلي</span><span id="sum-total">0 درهم</span></div>
+          <button class="order-btn" id="order-btn">
+            <span>إتمام الطلب عبر واتساب</span>
+          </button>
+          <p class="hint">سيتم تحويلك إلى واتساب لتأكيد طلبك مباشرة معنا</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h3>الخطّاب</h3>
+      <p>مكتبة متخصصة في الكتب الإسلامية الأصيلة: العقيدة، السيرة، التزكية، والمتون العلمية، بطبعات فاخرة مختارة بعناية.</p>
+    </div>
+    <div class="footer-col">
+      <h3>التواصل والطلب</h3>
+      <p>لإتمام طلبك أو الاستفسار عن أي كتاب:</p>
+      <a class="wa-link" href="https://wa.me/212665856787" target="_blank">💬 665-856787 (212+)</a>
+    </div>
+    <div class="footer-col">
+      <h3>التوصيل</h3>
+      <p>داخل الدار البيضاء: 20 درهم</p>
+      <p>خارج الدار البيضاء: 35 درهم</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© الخطّاب — مكتبة الكتب الإسلامية</div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------------- Product data ---------------- */
+const PRODUCTS = [
+  {
+    id:"hashiya-thalatha-usul",
+    title:"حاشية ثلاثة الأصول ويليها حاشية كتاب التوحيد",
+    author:"أصل المتون: شيخ الإسلام محمد بن عبد الوهاب — حاشية: عبد الرحمن بن قاسم العاصمي",
+    category:"عقيدة وتوحيد",
+    price:130,
+    img:"images/book001.jpg",
+    desc:"تعليقات نفيسة على متن ثلاثة الأصول وكتاب التوحيد، وبالهامش تعليقات للعلامة السعدي وابن باز والعثيمين والفوزان."
+  },
+  {
+    id:"aqida-wasitiya",
+    title:"شرح العقيدة الواسطية",
+    author:"شيخ الإسلام ابن تيمية — شرح: العلامة محمد بن صالح العثيمين",
+    category:"عقيدة وتوحيد",
+    price:175,
+    img:"images/book002.jpg",
+    desc:"من أجمع وأجود الشروح لرسالة شيخ الإسلام ابن تيمية في بيان عقيدة أهل السنة والجماعة، بأسلوب علمي رصين ومحرر."
+  },
+  {
+    id:"qawl-mufid",
+    title:"القول المفيد على كتاب التوحيد",
+    author:"العلامة محمد بن صالح العثيمين",
+    category:"عقيدة وتوحيد",
+    price:215,
+    img:"images/book003.jpg",
+    desc:"من أجمع وأوضح شروح كتاب التوحيد للإمام محمد بن عبد الوهاب، تقرير لمسائل التوحيد والعقيدة الصحيحة بأسلوب ميسر."
+  },
+  {
+    id:"aqidat-tawhid",
+    title:"عقيدة التوحيد وبيان ما يضادها أو ينقصها من الشرك",
+    author:"معالي الدكتور صالح بن فوزان الفوزان",
+    category:"عقيدة وتوحيد",
+    price:120,
+    img:"images/book004.jpg",
+    desc:"من أمهات الكتب المعاصرة في تقرير عقيدة أهل السنة، بيان لأنواع الشرك الأكبر والأصغر والتعطيل والبدع بأسلوب واضح."
+  },
+  {
+    id:"bidaya-nihaya",
+    title:"البداية والنهاية",
+    author:"الحافظ ابن كثير الدمشقي",
+    category:"سيرة وتاريخ",
+    price:550,
+    img:"images/book005.jpg",
+    desc:"من أهم وأشمل كتب التاريخ الإسلامي، يروي قصة البشرية منذ بدء الخلق مروراً بالسيرة النبوية وصولاً إلى أهوال يوم القيامة، عدة مجلدات."
+  },
+  {
+    id:"sira-nabawiya",
+    title:"السيرة النبوية",
+    author:"الإمام ابن هشام المعافري",
+    category:"سيرة وتاريخ",
+    price:279,
+    img:"images/book006.jpg",
+    desc:"من أمهات كتب السيرة النبوية وأعظم مرجع أصلي وصل إلينا، اعتمد فيه ابن هشام على سيرة ابن إسحاق وهذّبها وأضاف إليها فوائد جليلة، مجلدان."
+  },
+  {
+    id:"rahiq-makhtum",
+    title:"الرحيق المختوم",
+    author:"الشيخ صفي الرحمن المباركفوري",
+    category:"سيرة وتاريخ",
+    price:119,
+    img:"images/book007.jpg",
+    desc:"من أشهر المؤلفات المعاصرة في السيرة النبوية، حائز على الجائزة الأولى في مسابقة رابطة العالم الإسلامي، طبعة جديدة منقحة."
+  },
+  {
+    id:"zad-maad",
+    title:"زاد المعاد في هدي خير العباد",
+    author:"الإمام ابن قيم الجوزية",
+    category:"سيرة وتاريخ",
+    price:190,
+    img:"images/book008.jpg",
+    desc:"موسوعة عظيمة جمع فيها أحوال النبي ﷺ وهديه في جميع شؤون حياته، بتعليقات هامة لسماحة الشيخ عبد العزيز بن باز."
+  },
+  {
+    id:"dawaa-dawaa",
+    title:"الدواء والداء (الجواب الكافي لمن سأل عن الدواء الشافي)",
+    author:"الإمام ابن قيم الجوزية",
+    category:"تزكية وآداب طلب العلم",
+    price:108,
+    img:"images/book009.jpg",
+    desc:"من أعمق وأعظم كتب التزكية والرقائق الإسلامية، يتناول أمراض القلوب وعلاجاتها المستمدة من الكتاب والسنة."
+  },
+  {
+    id:"madarij-salikin",
+    title:"مدارج السالكين بين منازل إياك نعبد وإياك نستعين",
+    author:"الإمام ابن قيم الجوزية — تحقيق: محمد حامد الفقي",
+    category:"تزكية وآداب طلب العلم",
+    price:184,
+    img:"images/book010.jpg",
+    desc:"من أجمل وأعمق كتب السلوك والتزكية في التراث الإسلامي، شرح تفصيلي لمنازل إياك نعبد وإياك نستعين مستمداً من سورة الفاتحة."
+  },
+  {
+    id:"hilyat-talib-ilm",
+    title:"شرح حلية طالب العلم",
+    author:"بكر بن عبد الله أبو زيد — شرح: العلامة محمد بن صالح العثيمين",
+    category:"تزكية وآداب طلب العلم",
+    price:80,
+    img:"images/book011.jpg",
+    desc:"يجمع بين متن حلية طالب العلم وآدابه والشرح الوافي للعلامة ابن عثيمين، مرشد روحي وعلمي لكل سالك طريق العلم الشرعي."
+  },
+  {
+    id:"arbain-nawawiya",
+    title:"شرح الأربعين النووية",
+    author:"العلامة محمد بن صالح العثيمين",
+    category:"الحديث وشروحه",
+    price:170,
+    img:"images/book012.jpg",
+    desc:"شرح لأصول الإسلام وقواعده الكلية كما جمعها الإمام النووي، بأسلوب بياني رصين وفقه متبحر يلامس حياة المسلم اليومية."
+  },
+  {
+    id:"jami-mutun",
+    title:"جامع متون طالب العلم",
+    author:"تحقيق: عزت زينات",
+    category:"متون علمية",
+    price:90,
+    img:"images/book013.jpg",
+    desc:"مرجع شامل يجمع المتون العلمية الأساسية مقسمة إلى مستويات تعليمية من التمهيدي إلى المستوى الرابع لتسهيل التدرج العلمي."
+  },
+  {
+    id:"ashrat-assaa",
+    title:"أشراط الساعة واليوم الآخر",
+    author:"فضيلة الشيخ فايز بن صبيح الشمري",
+    category:"عقيدة وتوحيد",
+    price:130,
+    img:"images/book014.jpg",
+    desc:"مرجع قيم يعرض بأسلوب علمي مؤصل أحداث اليوم الآخر وعلامات الساعة الصغرى والكبرى، مستنداً إلى الآيات القرآنية والأحاديث النبوية الصحيحة لربط قلب المسلم بالدار الآخرة."
+  },
+  {
+    id:"dalil-rasheed-aqeeda",
+    title:"الدليل الرشيد إلى متون العقيدة والتوحيد (50 متناً في العقيدة السلفية)",
+    author:"نخبة من العلماء",
+    category:"عقيدة وتوحيد",
+    price:140,
+    img:"images/book015.jpg",
+    desc:"مرجع جامع ومبارك لكل طالب علم يرغب في تأصيل عقيدته، يضم مجموعة من أهم وأبرز المتون العلمية في العقيدة السلفية، ليكون حلقة وصل متينة بين طالب العلم وأمهات المتون العقدية الأصيلة."
+  },
+  {
+    id:"taysir-kareem-rahman",
+    title:"تيسير الكريم الرحمن في تفسير كلام المنان",
+    author:"الإمام العلامة عبد الرحمن بن ناصر السعدي - رحمه الله",
+    category:"التفسير وعلوم القرآن",
+    price:130,
+    img:"images/book016.jpg",
+    desc:"يعد هذا التفسير من أنفع التفاسير وأسهلها وأعظمها فائدة، حيث يتميز بوضوح العبارة والتركيز على المعاني الإيمانية والتربوية، وسلاسة الطرح في بيان مقاصد الآيات القرآنية بأسلوب نقي يوافق عقيدة السلف الصالح."
+  },
+  {
+    id:"talbees-iblees",
+    title:"تلبيس إبليس",
+    author:"العلامة أبي الفرج عبد الرحمن بن الجوزي - رحمه الله",
+    category:"تزكية وآداب طلب العلم",
+    price:93,
+    img:"images/book017.jpg",
+    desc:"يعد هذا الكتاب من أبرز وأبدع المصنفات في كشف حيل الشيطان ومكايده التي يوقع بها بني آدم، حيث نبّه فيه ابن الجوزي على مكائد إبليس للعباد في العقائد والعبادات والمعاصي والبدع، محذراً منها بأسلوب واعظ بصير بأحوال النفوس ومداخل الشيطان."
+  },
+  {
+    id:"qeemat-azzaman",
+    title:"قيمة الزمن عند العلماء",
+    author:"العلامة المربي الشيخ عبد الفتاح أبو غدة - رحمه الله",
+    category:"تزكية وآداب طلب العلم",
+    price:137,
+    img:"images/book018.jpg",
+    desc:"يعد هذا الكتاب من أروع وأوعظ ما كتب في الحث على استغلال الوقت والحفاظ عليه، حيث جمع فيه المؤلف نوادر وأخباراً عجيبة عن حرص علماء السلف على أوقاتهم وكيفية استثمارها في طلب العلم والعمل الصالح، ليكون موقظاً للهمم ومحفزاً للطاعات."
+  },
+  {
+    id:"aqeedat-tawheed-fawzan",
+    title:"عقيدة التوحيد وبيان ما يضادها أو ينقصها من الشرك الأكبر والأصغر والتعطيل والبدع وغيرها",
+    author:"فضيلة الشيخ صالح بن فوزان بن عبد الله الفوزان - عضو هيئة كبار العلماء وعضو اللجنة الدائمة للإفتاء",
+    category:"عقيدة وتوحيد",
+    price:106,
+    img:"images/book019.jpg",
+    desc:"يعد هذا الكتاب من أمهات الكتب المعاصرة في تقرير عقيدة أهل السنة والجماعة، حيث فصّل فيه الشيخ صالح الفوزان بيان التوحيد وأنواعه، وما يناقضه أو ينقصه من الشرك الأكبر والأصغر والتعطيل والبدع بأسلوب محرر وواضح."
+  },
+  {
+    id:"khurasaniyya-razeen",
+    title:"الخلاصة الخراسانية في شرح عقيدة الرازيين (أصل السنة واعتقاد الدين)",
+    author:"عبد العزيز بن مرزوق الطريفي",
+    category:"عقيدة وتوحيد",
+    price:249,
+    img:"images/book020.jpg",
+    desc:"يعد هذا الكتاب شرحاً مفيداً وعميقاً لعقيدة الإمامين الرازيين (أبي حاتم وأبي زرعة - رحمهما الله)، حيث يُبيّن أصل السنة واعتقاد الدين وما أدركا عليه العلماء في جميع الأمصار من تقرير لعقيدة أهل السنة والجماعة."
+  },
+  {
+    id:"ahadeeth-akhlaq",
+    title:"أحاديث الأخلاق",
+    author:"عبد الرزاق بن عبد المحسن البدر",
+    category:"الحديث وشروحه",
+    price:115,
+    img:"images/book021.jpg",
+    desc:"يعد هذا من المؤلفات القيمة التي تعنى بجمع وشرح الأحاديث النبوية المتعلقة بالأخلاق والآداب الإسلامية، حيث يسلط الضوء على هدي النبي صلى الله عليه وسلم في حسن الخلق ومعاملة الناس، لتكون منارة يهتدي بها المسلم في حياته اليومية."
+  },
+  {
+    id:"fath-alqawi-almateen",
+    title:"فتح القوي المتين في شرح الأربعين وتتمة الخمسين للنووي وابن رجب - رحمهما الله",
+    author:"عبد المحسن بن محمد العباد البدر - تحقيق: إبراهيم الغزالي",
+    category:"الحديث وشروحه",
+    price:79,
+    img:"images/book022.jpg",
+    desc:"يعد هذا الكتاب شرحاً جامعاً ونافعاً لأحاديث الأربعين النووية مع تتمة الحافظ ابن رجب لها، حيث يعرض المؤلف فيه الفوائد العقدية والفقهية والأخلاقية المستفادة من هذه الجوامع النبوية العظيمة بأسلوب علمي رصين وميسر."
+  },
+  {
+    id:"hifz-almuyassar",
+    title:"الحفظ الميسر",
+    author:"إعداد: محمد السيد ماشي",
+    category:"التفسير وعلوم القرآن",
+    price:120,
+    img:"images/book023.jpg",
+    desc:"يعد هذا الكتاب طريقة مبتكرة لتيسير حفظ القرآن الكريم باستخدام الروابط اللفظية والمعنوية والموضوعية، كما يتميز برواية ورش عن نافع، ويحتوي على وقفات تدبرية، معاني الكلمات، والآيات القرآنية التي قد تُفهم خطأً والمتشابهات."
+  },
+  {
+    id:"ma-la-yasau-almuslim",
+    title:"ما لا يسع المسلم جهله (كتاب لا غنى عنه لكل مسلم)",
+    author:"إعداد: د. عبد الله الصالح / د. صلاح الصاوي - راجع وقدم له فضيلة الشيخ صالح بن فوزان الفوزان",
+    category:"الفقه والحياة الإسلامية",
+    price:53,
+    img:"images/book024.jpg",
+    desc:"يعد هذا الكتاب مرجعاً أساسياً جامعاً لأهم العلوم الشرعية التي لا غنى لكل مسلم عن معرفتها في دينه، حيث يغطي أبواباً واسعة تشمل التوحيد، الإيمان، الطهارة، الصلاة، أحكام الجنائز، الزكاة، الصيام، الحج، النكاح، المعاملات، الآداب والأخلاق، وغيرها من فقه العبادات والمعاملات."
+  },
+  {
+    id:"ashifa-ta3reef-huqooq",
+    title:"الشفا بتعريف حقوق المصطفى",
+    author:"للعالم المحقق القاضي أبي الفضل عياض اليحصبي - المتوفى سنة 544هـ",
+    category:"سيرة وتاريخ",
+    price:105,
+    img:"images/book025.jpg",
+    desc:"يعد هذا الكتاب من أعظم وأشهر المؤلفات في السيرة النبوية وخصائص النبي صلى الله عليه وسلم ومعجزاته، حيث جمع فيه القاضي عياض حقوق النبي العظيمة الواجبة على الأمة، وبيّن مقامه العالي بأسلوب علمي رفيع يلامس القلوب."
+  },
+  {
+    id:"asseerah-annabawiyya-hisham",
+    title:"السيرة النبوية",
+    author:"الإمام أبي محمد عبد الملك بن هشام بن أيوب الأنصاري - المتوفى 218هـ",
+    category:"سيرة وتاريخ",
+    price:116,
+    img:"images/book026.jpg",
+    desc:"يعد هذا الكتاب من أعرق وأهم أمهات كتب السيرة النبوية الشريفة، حيث اعتمد فيه ابن هشام على تهذيب وضبط سيرة ابن إسحاق، ليقدم للقارئ تفاصيل حياة النبي صلى الله عليه وسلم وغزواته وسيرته العطرة بأسلوب علمي وتاريخي فريد."
+  },
+  {
+    id:"alqawl-almufeed",
+    title:"القول المفيد شرح كتاب التوحيد",
+    author:"الإمام محمد بن عبد الوهاب - شرح لفضيلة الشيخ العلامة محمد بن صالح العثيمين - رحمه الله",
+    category:"عقيدة وتوحيد",
+    price:97,
+    img:"images/book027.jpg",
+    desc:"يعد هذا الكتاب من أجود وأشمل الشروحات المعاصرة لكتاب التوحيد للإمام محمد بن عبد الوهاب، حيث أبدع الشيخ ابن عثيمين في بيان مسائل التوحيد وتوضيح الأدلة، واستخراج الفوائد العقدية والفقهية بأسلوب علمي رصين وميسر."
+  },
+  {
+    id:"tuhfat-alarusayn",
+    title:"تحفة العروسين في فقه الزواج وآدابه",
+    author:"إعداد: أحمد الشافعي",
+    category:"الفقه والحياة الإسلامية",
+    price:90,
+    img:"images/book028.jpg",
+    desc:"يعد هذا الكتاب مرجعاً نافعاً وموجهاً لكل مقبل ومقبلة على الزواج، حيث يعرض فقه الزواج وأحكامه الشرعية، إلى جانب الآداب والأخلاق الزوجية التي تسهم في بناء أسرة مسلمة سعيدة ومستقرة."
+  },
+  {
+    id:"almanahi-ashshareiyya",
+    title:"المناهي الشرعية المنتشرة بين البرية",
+    author:"فضيلة الشيخ فايز بن صبيح الشمري - حفظه الله",
+    category:"تزكية وآداب طلب العلم",
+    price:123,
+    img:"images/book029.jpg",
+    desc:"يعد هذا الكتاب مرجعاً توجيهياً هاماً للتنبيه على المخالفات والأفعال المحرمة أو المكروهة التي شاعت بين الناس، حيث يبين المؤلف المناهي الشرعية المستندة إلى الأدلة الصحيحة من الكتاب والسنة لتحذير المسلم منها وتقويم سلوكه."
+  },
+  {
+    id:"kurrasat-mutoon-talib-ilm",
+    title:"كراسة متون طالب العلم (المستوى الأول) - محققة على 230 مخطوطة",
+    author:"جمع وترتيب وتحقيق: د. عبد المحسن بن محمد القاسم - إمام وخطيب المسجد النبوي الشريف",
+    category:"متون علمية",
+    price:50,
+    img:"images/book030.jpg",
+    desc:"يعد هذا الكتاب مرجعاً منهجياً فريداً ومباركاً لطلاب العلم الشرعي، حيث يضم مجموعة من المتون الأساسية للمستوى الأول والتي جُمعت وحُققت بعناية فائقة على 230 مخطوطة، بإشراف فضيلة الدكتور عبد المحسن بن محمد القاسم."
+  },
+  {
+    id:"annihayah-alfitan",
+    title:"النهاية في الفتن والملاحم",
+    author:"للإمام الحافظ أبي الفداء إسماعيل بن كثير القرشي الدمشقي - مراجعة وتحقيق: رفعت فوزي عبد المطلب",
+    category:"عقيدة وتوحيد",
+    price:90,
+    img:"images/book031.jpg",
+    desc:"يعد هذا الكتاب من أشهر المصنفات وأعظمها قدراً في بابه، حيث جمع فيه الحافظ ابن كثير أحداث الفتن والملاحم وأشراط الساعة الصغرى والكبرى، وأهوال يوم القيامة وما ورد في ذلك من الآيات والأحاديث النبوية مع بيان صحتها وضعفها بأسلوب علمي رصين."
+  },
+  {
+    id:"umdat-attafseer",
+    title:"عمدة التفسير عن الحافظ ابن كثير (مختصر تفسير القرآن العظيم)",
+    author:"للعلامة المحقق الشيخ أحمد شاكر - أعده أنور الباز (المجلد الثالث)",
+    category:"التفسير وعلوم القرآن",
+    price:320,
+    img:"images/book032.jpg",
+    desc:"يعد هذا الكتاب اختصاراً جامعاً ومحققاً لأبرز وأوثق تفاسير القرآن الكريم وهو تفسير الحافظ ابن كثير، حيث قام الشيخ أحمد شاكر بتهذيبه واختصاره بعناية ليكون مرجعاً سهلاً ووافياً في تفسير كتاب الله بالمأثور والأدلة الصحيحة."
+  },
+  {
+    id:"alwalaa-albaraa",
+    title:"الولاء والبراء",
+    author:"لمعالي الشيخ الدكتور صالح بن فوزان بن عبد الله آل فوزان - عضو هيئة كبار العلماء وعضو اللجنة الدائمة للإفتاء",
+    category:"عقيدة وتوحيد",
+    price:79,
+    img:"images/book033.jpg",
+    desc:"يعد هذا الكتاب من المؤلفات العقدية المهمة التي تبين أصل الولاء والبراء في الإسلام، حيث يوضح فيه المؤلف بأسلوب علمي رصين مفهوم موالاة المؤمنين والبراءة من الكفر وأهله وفق منهج أهل السنة والجماعة."
+  },
+  {
+    id:"jami-ahkam-almaraa-almuslima",
+    title:"الجامع لأحكام المرأة المسلمة",
+    author:"فضيلة الشيخ د. عبد الكريم الخضير، فضيلة الشيخ عبد العزيز بن عبد الله بن باز، فضيلة الشيخ عبد الله بن عبد الرحمن الجبرين، فضيلة الشيخ محمد بن صالح العثيمين - جمع وترتيب: فيصل بن تحقيق بنال بنحسين البلوشي",
+    category:"الفقه والحياة الإسلامية",
+    price:92,
+    img:"images/book034.jpg",
+    desc:"مرجع شامل وعظيم يجمع أحكام المرأة المسلمة وفقهها مستنداً إلى فتاوى وتوجيهات كبار علماء العصر (ابن باز، ابن عثيمين، الجبرين، والخضير)، ليكون دليلاً وافياً لكل ما تحتاجه المسلمة في دينها ودنياها."
+  },
+  {
+    id:"ahadeeth-islah-alqulub",
+    title:"أحاديث إصلاح القلوب",
+    author:"عبد الرزاق بن عبد المحسن البدر",
+    category:"الحديث وشروحه",
+    price:150,
+    img:"images/book035.jpg",
+    desc:"من المؤلفات الإيمانية والرقائق النافعة التي تجمع وتشرح الأحاديث النبوية المتعلقة بأعمال القلوب وتزكيتها، حيث يسلط الضوء على هدي النبي ﷺ في صلاح القلب واستقامته، لتكون مرشداً للمسلم في تزكية نفسه وتقوية صلته بالله عز وجل."
+  },
+  {
+    id:"diwan-mutanabbi",
+    title:"ديوان المتنبي (نص - تحقيق - دراسة)",
+    author:"أبو الطيب المتنبي",
+    category:"الأدب والشعر",
+    price:90,
+    img:"images/book036.jpg",
+    desc:"يعد ديوان المتنبي من أعظم الدواوين الشعرية في التراث العربي وأكثرها بلاغة وحكمة، حيث يضم روائع شعر أبو الطيب المتنبي الذي ملأ الدنيا وشغل الناس بفروسية كلمه وعمق معانيه، وتأتي هذه الطبعة مشتملة على النص المحقق والدراسة الشاملة."
+  },
+  {
+    id:"kitab-assunnah-kirmani",
+    title:"كتاب السنة (من مسائل حرب بن إسماعيل الحنظلي الكرماني)",
+    author:"حرب بن إسماعيل الحنظلي الكرماني (ت280هـ) - أخرجه وحققه: أبو عبد الله عادل بن عبد الله آل حمدان",
+    category:"عقيدة وتوحيد",
+    price:218,
+    img:"images/book037.jpg",
+    desc:"يعد هذا الكتاب من أمهات كتب العقيدة والسنة عند السلف، حيث جمع فيه الإمام حرب بن إسماعيل الكرماني مسائل الإمام أحمد بن حنبل وإسحاق بن راهويه وغيرهما في العقيدة وأصول السنة، مبيناً منهج أهل السنة والجماعة بالأدلة والآثار."
+  },
+  {
+    id:"majmooat-mutoon-talib-ilm",
+    title:"مجموعة متون طالب العلم (محققة على 230 مخطوطة)",
+    author:"جمع وترتيب وتحقيق: د. عبد المحسن بن محمد القاسم - إمام وخطيب المسجد النبوي الشريف",
+    category:"متون علمية",
+    price:60,
+    img:"images/book038.jpg",
+    desc:"مجموعة مرجعية منهجية ومباركة لطلاب العلم الشرعي، تضم مجموعة من المتون الأساسية للمستويات المختلفة والتي جُمعت وحُققت بعناية فائقة على (230) مخطوطة، بإشراف وفضيلة الدكتور عبد المحسن بن محمد القاسم."
+  },
+  {
+    id:"safwat-attafasir",
+    title:"صفوة التفاسير (تفسير للقرآن الكريم، جامع بين المأثور والمعقول)",
+    author:"محمد علي الصابوني - الأستاذ بكلية الشريعة والدراسات الإسلامية بمكة المكرمة - جامعة الملك عبد العزيز",
+    category:"التفسير وعلوم القرآن",
+    price:360,
+    img:"images/book039.jpg",
+    desc:"من أشهر التفاسير المعاصرة وأكثرها نفعاً، حيث جمع فيه المؤلف بين التفسير بالمأثور والمعقول مستمداً من أوثق كتب التفسير، وبأسلوب ميسر وتنظيم حديث، مع العناية بالوجوه البيانية واللغوية، بنسخة محققة ومخرجة الأحاديث."
+  },
+  {
+    id:"bundle-qasas-anbiya",
+    title:"باقة قصص الأنبياء (10 قصص)",
+    author:"قصص مبسطة ومصورة لسير الأنبياء عليهم السلام",
+    category:"الحزم",
+    price:25,
+    img:"images/book040.jpg",
+    desc:"باقة تضم 10 قصص من قصص الأنبياء عليهم السلام بأسلوب مبسط وسهل، مناسبة لتحبيب الأبناء في سيرة الأنبياء وغرس القيم الإيمانية."
+  },
+  {
+    id:"bundle-bukhari-muslim",
+    title:"حزمة صحيح البخاري وصحيح مسلم",
+    author:"الإمام أبو عبدالله محمد بن إسماعيل البخاري — الإمام مسلم بن الحجاج القشيري النيسابوري",
+    category:"الحزم",
+    price:300,
+    img:"images/book041.jpg",
+    desc:"حزمة صحيح البخاري وصحيح مسلم معاً بطبعة فاخرة، أصح كتابين بعد كتاب الله، شاملة التوصيل."
+  },
+  {
+    id:"bundle-nisaa",
+    title:"باقة النساء",
+    author:"نخبة من العلماء وطلبة العلم",
+    category:"الحزم",
+    price:199,
+    img:"images/book042.jpg",
+    desc:"باقة مختارة من الكتب الموجهة للمرأة المسلمة تجمع بين الفقه والآداب والأحكام الخاصة بها، شاملة التوصيل."
+  },
+  {
+    id:"bundle-la-yasa-almuslim",
+    title:"حزمة ما لا يسع المسلم جهله",
+    author:"إعداد: د. عبدالله الصماح ود. صلاح العصاري — مراجعة الشيخ صالح بن فوزان الفوزان",
+    category:"الحزم",
+    price:250,
+    img:"images/book043.jpg",
+    desc:"حزمة تضم كتاب ما لا يسع المسلم جهله الجامع لأهم العلوم الشرعية، مع كتب مختارة أخرى، شاملة التوصيل."
+  },
+  {
+    id:"bundle-zad-maad-madarij",
+    title:"حزمة زاد المعاد ومدارج السالكين والداء والدواء",
+    author:"الإمام ابن قيم الجوزية",
+    category:"الحزم",
+    price:499,
+    img:"images/book044.jpg",
+    desc:"حزمة من أهم مؤلفات الإمام ابن القيم رحمه الله: زاد المعاد في هدي خير العباد، مدارج السالكين، والداء والدواء."
+  }
+];
+
+/* ---------------- State ---------------- */
+let cart = {};   // id -> qty
+let activeCategory = "all";
+let searchQuery = "";
+
+/* ---------------- Render products ---------------- */
+function renderProducts(){
+  const grid = document.getElementById('product-grid');
+  grid.innerHTML = "";
+  let list = activeCategory === "all" ? PRODUCTS : PRODUCTS.filter(p => p.category === activeCategory);
+  if(searchQuery.trim() !== ""){
+    const q = searchQuery.trim().toLowerCase();
+    list = list.filter(p =>
+      (p.title && p.title.toLowerCase().includes(q)) ||
+      (p.author && p.author.toLowerCase().includes(q)) ||
+      (p.desc && p.desc.toLowerCase().includes(q))
+    );
+  }
+  if(list.length === 0){
+    grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px 0; color:var(--muted);">لا توجد نتائج مطابقة لبحثك</div>';
+    return;
+  }
+  list.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-media"><img src="${p.img}" alt="${p.title}" loading="lazy"></div>
+      <div class="card-body">
+        <div class="card-cat">${p.category}</div>
+        <h3 class="card-title">${p.title}</h3>
+        <div class="card-author">${p.author}</div>
+        <div class="card-desc">${p.desc}</div>
+        <div class="card-foot">
+          <div class="price">${p.price} <small>درهم</small></div>
+          <button class="add-btn" data-id="${p.id}">أضف إلى السلة</button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  Array.from(grid.querySelectorAll('.add-btn')).forEach(function(btn){
+    btn.addEventListener('click', ()=>{
+      addToCart(btn.dataset.id);
+      btn.textContent = "أُضيف ✓";
+      btn.classList.add('added');
+      setTimeout(()=>{ btn.textContent = "أضف إلى السلة"; btn.classList.remove('added'); }, 1200);
+    });
+  });
+}
+
+/* ---------------- Cart logic ---------------- */
+function addToCart(id){
+  cart[id] = (cart[id] || 0) + 1;
+  updateCartBadge();
+  showToast("تمت إضافة الكتاب إلى السلة");
+}
+function changeQty(id, delta){
+  if(!cart[id]) return;
+  cart[id] += delta;
+  if(cart[id] <= 0) delete cart[id];
+  updateCartBadge();
+  renderCart();
+}
+function removeFromCart(id){
+  delete cart[id];
+  updateCartBadge();
+  renderCart();
+}
+function cartCount(){
+  return Object.values(cart).reduce((a,b)=>a+b,0);
+}
+function updateCartBadge(){
+  const el = document.getElementById('cart-count');
+  const n = cartCount();
+  if(n > 0){ el.style.display='flex'; el.textContent = n; }
+  else { el.style.display='none'; }
+}
+
+function currentDeliveryFee(){
+  const sel = document.querySelector('input[name="delivery"]:checked');
+  return sel ? parseInt(sel.value,10) : 20;
+}
+
+function renderCart(){
+  const itemsWrap = document.getElementById('cart-items');
+  const emptyWrap = document.getElementById('cart-empty');
+  const contentWrap = document.getElementById('cart-content');
+  const ids = Object.keys(cart);
+
+  if(ids.length === 0){
+    emptyWrap.style.display = 'block';
+    contentWrap.style.display = 'none';
+    return;
+  }
+  emptyWrap.style.display = 'none';
+  contentWrap.style.display = 'block';
+
+  itemsWrap.innerHTML = "";
+  let subtotal = 0;
+  ids.forEach(id=>{
+    const p = PRODUCTS.find(x=>x.id===id);
+    const qty = cart[id];
+    const lineTotal = p.price * qty;
+    subtotal += lineTotal;
+    const row = document.createElement('div');
+    row.className = 'cart-item';
+    row.innerHTML = `
+      <img src="${p.img}" alt="${p.title}">
+      <div class="ci-info">
+        <h4>${p.title}</h4>
+        <div class="ci-price">${p.price} درهم للنسخة</div>
+      </div>
+      <div class="qty-ctrl">
+        <button data-act="minus" data-id="${id}">−</button>
+        <span>${qty}</span>
+        <button data-act="plus" data-id="${id}">+</button>
+      </div>
+      <div class="ci-total">${lineTotal} درهم</div>
+      <button class="ci-remove" data-id="${id}" title="حذف">✕</button>
+    `;
+    itemsWrap.appendChild(row);
+  });
+
+  Array.from(itemsWrap.querySelectorAll('button[data-act="plus"]')).forEach(function(b){b.addEventListener('click',function(){changeQty(b.dataset.id, 1);});});
+  Array.from(itemsWrap.querySelectorAll('button[data-act="minus"]')).forEach(function(b){b.addEventListener('click',function(){changeQty(b.dataset.id, -1);});});
+  Array.from(itemsWrap.querySelectorAll('.ci-remove')).forEach(function(b){b.addEventListener('click',function(){removeFromCart(b.dataset.id);});});
+
+  const delivery = currentDeliveryFee();
+  document.getElementById('sum-subtotal').textContent = subtotal + " درهم";
+  document.getElementById('sum-delivery').textContent = delivery + " درهم";
+  document.getElementById('sum-total').textContent = (subtotal + delivery) + " درهم";
+}
+
+/* ---------------- Toast ---------------- */
+let toastTimer;
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 1800);
+}
+
+/* ---------------- View routing ---------------- */
+function showCartView(){
+  document.getElementById('shop-view').style.display = 'none';
+  document.getElementById('cart-view').style.display = 'block';
+  renderCart();
+  window.scrollTo(0,0);
+}
+function showShopView(){
+  document.getElementById('cart-view').style.display = 'none';
+  document.getElementById('shop-view').style.display = 'block';
+  window.scrollTo(0,0);
+}
+
+document.getElementById('cart-btn').addEventListener('click', showCartView);
+document.getElementById('back-to-shop').addEventListener('click', (e)=>{ e.preventDefault(); showShopView(); });
+
+/* ---------------- Category filters ---------------- */
+document.getElementById('search-input').addEventListener('input', (e)=>{
+  searchQuery = e.target.value;
+  renderProducts();
+});
+
+document.getElementById('filters').addEventListener('click', (e)=>{
+  const chip = e.target.closest('.chip');
+  if(!chip) return;
+  Array.from(document.querySelectorAll('.chip')).forEach(function(c){c.classList.remove('active');});
+  chip.classList.add('active');
+  activeCategory = chip.dataset.cat;
+  renderProducts();
+});
+document.getElementById('topnav').addEventListener('click', (e)=>{
+  const link = e.target.closest('a');
+  if(!link) return;
+  e.preventDefault();
+  activeCategory = link.dataset.cat;
+  Array.from(document.querySelectorAll('.chip')).forEach(function(c){
+    c.classList.toggle('active', c.dataset.cat === activeCategory);
+  });
+  renderProducts();
+  document.getElementById('books').scrollIntoView({behavior:'smooth'});
+});
+
+/* ---------------- Delivery option toggle ---------------- */
+Array.from(document.querySelectorAll('input[name="delivery"]')).forEach(function(r){
+  r.addEventListener('change', function(){
+    document.getElementById('opt-casa').classList.toggle('selected', document.querySelector('#opt-casa input').checked);
+    document.getElementById('opt-other').classList.toggle('selected', document.querySelector('#opt-other input').checked);
+    renderCart();
+  });
+});
+document.getElementById('opt-casa').addEventListener('click', ()=>{ document.querySelector('#opt-casa input').checked = true; document.querySelector('#opt-casa input').dispatchEvent(new Event('change')); });
+document.getElementById('opt-other').addEventListener('click', ()=>{ document.querySelector('#opt-other input').checked = true; document.querySelector('#opt-other input').dispatchEvent(new Event('change')); });
+
+/* ---------------- Order via WhatsApp ---------------- */
+document.getElementById('order-btn').addEventListener('click', ()=>{
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const address = document.getElementById('f-address').value.trim();
+
+  if(!name || !phone || !address){
+    showToast("يرجى تعبئة الاسم والهاتف والعنوان");
+    return;
+  }
+  if(Object.keys(cart).length === 0){
+    showToast("سلتك فارغة");
+    return;
+  }
+
+  const delivery = currentDeliveryFee();
+  const deliveryLabel = delivery === 20 ? "داخل الدار البيضاء" : "خارج الدار البيضاء";
+  let subtotal = 0;
+  let lines = [];
+  Object.keys(cart).forEach(id=>{
+    const p = PRODUCTS.find(x=>x.id===id);
+    const qty = cart[id];
+    const lineTotal = p.price * qty;
+    subtotal += lineTotal;
+    lines.push(`• ${p.title} × ${qty} = ${lineTotal} درهم`);
+  });
+  const total = subtotal + delivery;
+
+  const message =
+`السلام عليكم، أرغب في طلب الكتب التالية من متجر الخطّاب:
+
+${lines.join('\n')}
+
+مجموع الكتب: ${subtotal} درهم
+التوصيل (${deliveryLabel}): ${delivery} درهم
+المجموع الكلي: ${total} درهم
+
+الاسم: ${name}
+الهاتف: ${phone}
+العنوان: ${address}`;
+
+  const url = `https://wa.me/212665856787?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+});
+
+/* ---------------- Init ---------------- */
+renderProducts();
+updateCartBadge();
+</script>
+</body>
+</html>
